@@ -6952,6 +6952,19 @@ h4 {
 code {
   background-color: #424242;
 }
+.validateIP {
+  text-align: center;
+}
+.validateIP .validateResult {
+  color: #ececec;
+  text-decoration: underline;
+}
+.validateIP button {
+  margin-left: 12px;
+}
+.validateIP .reset {
+  display: inline;
+}
 /**
  * My settings.
  */

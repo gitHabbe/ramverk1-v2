@@ -65,8 +65,8 @@ return [
             "submenu" => [
                 "items" => [
                     [
-                        "text" => "Kmom01",
-                        "url" => "redovisning/kmom01",
+                        "text" => "Validate IP",
+                        "url" => "validate",
                         "title" => "Redovisning för kmom01.",
                     ],
                 ],
