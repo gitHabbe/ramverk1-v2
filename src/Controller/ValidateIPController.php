@@ -4,6 +4,7 @@ namespace Anax\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
+use Hab\Model;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
@@ -82,7 +83,9 @@ class ValidateIPController implements ContainerInjectableInterface
         $filterIPV4 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
         $filterIPV6 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
         if ($filterIPV4) {
-            $this->res[1] = $ip . " is a valid IPV4 address";
+            $test = new \Hab\Model\ValidateIP($ip);
+            // $test->getIP();
+            $this->res[1] = $test->getIP() . " is a valid IPV4 address";
             $this->res[2] = gethostbyaddr($ip);
         } elseif ($filterIPV6) {
             $this->res[1] = $ip . " is a valid IPV6 address";
