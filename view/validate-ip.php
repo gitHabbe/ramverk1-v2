@@ -13,17 +13,19 @@ namespace Anax\View;
 
 <div class="validateIP">
     <h1>Validate IP</h1>
-    <?php if ($res[1]) : ?>
-        <h4 class="validateResult"><?= $res[1] ?></h4>
-        <?php if ($res[0] != $res[2] && $res[2] != "") : ?>
-            <p>Host is: <?= $res[2] ?></p>
-        <?php endif; ?>
+    <?php if ($res) : ?>
+        <!-- <?php var_dump($res["data"]) ?> -->
+        <div class="resultIP <?php echo $res["data"]["type"] == "unknown" ? "fail" : "success" ?>">
+            <h4><?= $res["data"]["text"] ?></h4>
+            <?php if ($res["data"]["ip"] != $res["data"]["host"] && $res["data"]["host"]) : ?>
+                <h4>Host: <?= $res["data"]["host"] ?></h4>
+            <?php endif; ?>
+        </div>
     <?php endif; ?>
     <p>Input an IP4 or IP6 to validate it's format</p>
     <form method="post" action="<?= url("validate/check") ?>">
         <fieldset>
             <legend>IP validator</legend>
-            <!-- <label for="text">IP:</label> -->
             <input type="text" name="ip" required>
             <button type="submit">Check ip</button>
         </form>

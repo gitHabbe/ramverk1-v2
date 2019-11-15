@@ -56,21 +56,10 @@ class ValidateIPJsonController implements ContainerInjectableInterface
     {
         $request = $this->di->get("request");
         $ip = $request->getGet("ip", "");
-        // $json = [];
-        $filterIPV4 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
-        $filterIPV6 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
-        if ($filterIPV4) {
-            $this->res["ip"] = $filterIPV4;
-            $this->res["host"] = gethostbyaddr($ip);
-        } elseif ($filterIPV6) {
-            $this->res["ip"] = $filterIPV6;
-            $this->res["host"] = gethostbyaddr($ip);
-        } else {
-            $this->res["ip"] = "invalid ip";
-        }
-        if ($ip === "") {
-            $this->res["ip"] = "no ip specified, use ip query to input an ip";
-        }
+        
+        $validator = new \Hab\Model\ValidateIP($ip);
+        $data = $validator->sendRes();
+        $this->res["data"] = $data;
 
         return [$this->res];
     }

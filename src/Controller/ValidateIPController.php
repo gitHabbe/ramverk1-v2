@@ -79,21 +79,9 @@ class ValidateIPController implements ContainerInjectableInterface
         $response = $this->di->get("response");
         $session = $this->di->get("session");
         $ip = $request->getPost("ip");
-        $this->res[0] = $ip;
-        $filterIPV4 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
-        $filterIPV6 = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
-        if ($filterIPV4) {
-            $test = new \Hab\Model\ValidateIP($ip);
-            // $test->getIP();
-            $this->res[1] = $test->getIP() . " is a valid IPV4 address";
-            $this->res[2] = gethostbyaddr($ip);
-        } elseif ($filterIPV6) {
-            $this->res[1] = $ip . " is a valid IPV6 address";
-            $this->res[2] = gethostbyaddr($ip);
-        } else {
-            $this->res[1] = $ip . " is not a valid IP address";
-            $this->res[2] = "";
-        }
+        $validator = new \Hab\Model\ValidateIP($ip);
+        $data = $validator->sendRes();
+        $this->res["data"] = $data;
 
         $session->set("res", $this->res);
         return $response->redirect("validate");
@@ -107,7 +95,9 @@ class ValidateIPController implements ContainerInjectableInterface
     {
         $response = $this->di->get("response");
         $session = $this->di->get("session");
-        $this->res[1] = "";
+        // $session->destroy();
+        // $session->start();
+        $this->res = [];
         $session->set("res", $this->res);
         return $response->redirect("validate");
     }

@@ -6952,6 +6952,21 @@ h4 {
 code {
   background-color: #424242;
 }
+.resultIP {
+  width: 50%;
+  margin: 0 auto;
+}
+.resultIP h4 {
+  border: 0;
+}
+.success {
+  border: #005007 7px solid;
+  background-color: green;
+}
+.fail {
+  border: #500000 7px solid;
+  background-color: #d83519;
+}
 .validateIP {
   text-align: center;
 }
