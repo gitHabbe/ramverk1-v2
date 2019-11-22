@@ -14,10 +14,11 @@ class Fetch implements ContainerInjectableInterface
     private $method;
     private $data;
 
-    public function __construct(String $url = "localhost:8080", String $method = "GET", Array $data = []) {
+    public function __construct(String $method, String $url, Array $data = [])
+    {
         $this->curl = curl_init();
-        $this->url = $url;
         $this->method = $method;
+        $this->url = $url;
         $this->data = $data;
     }
 
@@ -56,17 +57,22 @@ class Fetch implements ContainerInjectableInterface
 
     public function applyParams(Array $data = [])
     {
-        $post = $this->di->get("request")->getPost();
+        // $post = $this->di->get("request")->getPost();
         switch ($this->getMethod()) {
             case "POST":
             case "PUT":
             case "DELETE":
                 curl_setopt($this->curl, CURLOPT_POSTFIELDS, $data);
                 break;
-            
-            default:
-                # code...
-                break;
         }
+    }
+
+    public function fetch()
+    {
+        curl_setopt($this->curl, CURLOPT_URL, $this->url);
+        curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
+        $res = curl_exec($this->curl);
+        curl_close($this->curl);
+        return $res;
     }
 }

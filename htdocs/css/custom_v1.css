@@ -6980,6 +6980,26 @@ code {
 .validateIP .reset {
   display: inline;
 }
+.geoIP {
+  display: flex;
+  flex-wrap: wrap;
+}
+.geoIP p {
+  text-align: center;
+  width: 33%;
+}
+.geoForm {
+  display: flex;
+}
+.geoForm .reset {
+  display: inline;
+}
+.geoForm form {
+  width: 100%;
+}
+.article .figures {
+  display: flex;
+}
 /**
  * My settings.
  */

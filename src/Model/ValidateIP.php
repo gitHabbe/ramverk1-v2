@@ -13,10 +13,10 @@ class ValidateIP
         $this->type = "unknown";
     }
 
-    public function setIP(String $ip = "") : void
-    {
-        $this->ip = $ip;
-    }
+    // public function setIP(String $ip = "") : void
+    // {
+    //     $this->ip = $ip;
+    // }
 
     public function getIP() : String
     {
@@ -66,11 +66,13 @@ class ValidateIP
         $res = [];
         if (!$this->validate()) {
             $res["text"] = $this->ip . " is not a valid format";
+            $res["isValid"] = false;
         } else {
+            $res["isValid"] = true;
             $res["text"] = $this->ip . " is a valid " . $this->getType() . " adress";
+            $res["host"] = $this->getHost();
         }
         $res["ip"] = $this->getIP();
-        $res["host"] = $this->getHost();
         $res["type"] = $this->getType();
         return $res;
     }

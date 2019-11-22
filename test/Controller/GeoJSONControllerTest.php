@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * Test the SampleJsonController.
  */
-class ValidateIPJsonControllerTest extends TestCase
+class GeoJSONControllerTest extends TestCase
 {
     
     // Create the di container.
@@ -35,7 +35,7 @@ class ValidateIPJsonControllerTest extends TestCase
         $di = $this->di;
 
         // Setup the controller
-        $this->controller = new ValidateIPController();
+        $this->controller = new GeoJSONController();
         $this->controller->setDI($this->di);
         $this->controller->initialize();
     }
@@ -45,7 +45,7 @@ class ValidateIPJsonControllerTest extends TestCase
     /**
      * Test if API returns happy ipv4 response.
      */
-    public function testIndexActionIP4Happy()
+    public function testSearchActionPostIP4Happy()
     {
         global $di;
 
@@ -60,26 +60,27 @@ class ValidateIPJsonControllerTest extends TestCase
         // $di = $this->di;
 
         // Setup the controller
-        $controller = new ValidateIPJsonController();
+        $controller = new GeoJSONController();
         $controller->setDI($this->di);
         $controller->initialize();
 
         // Setup request
         $request = $this->di->get("request");
-        $request->setGet("ip", "1.2.3.4");
+        $request->setPost("ip", "1.2.3.4");
 
         // Get response
-        $res = $controller->indexActionGet();
+        $res = $controller->searchActionPost();
+        $res = json_decode($res[0]);
         $exp = "1.2.3.4";
 
-        $this->assertIsArray($res);
-        $this->assertEquals($res[0]["data"]["ip"], $exp);
+        // $this->assertIsArray($res);
+        $this->assertEquals($res->ip, $exp);
     }
 
     /**
      * Test if API returns happy ipv6 response.
      */
-    public function testIndexActionIP6Happy()
+    public function testSearchActionGet()
     {
         global $di;
 
@@ -94,7 +95,7 @@ class ValidateIPJsonControllerTest extends TestCase
         // $di = $this->di;
 
         // Setup the controller
-        $controller = new ValidateIPJsonController();
+        $controller = new GeoJSONController();
         $controller->setDI($this->di);
         $controller->initialize();
 
@@ -103,49 +104,11 @@ class ValidateIPJsonControllerTest extends TestCase
         $request->setGet("ip", "2607:f0d0:1002:51::4");
 
         // Get response
-        $res = $controller->indexActionGet();
+        $res = $controller->searchActionGet();
+        $res = json_decode($res[0]);
         $exp = "2607:f0d0:1002:51::4";
 
-        $this->assertIsArray($res);
-        $this->assertEquals($res[0]["data"]["ip"], $exp);
-    }
-
-    /**
-     * Test if error msgs send correct info.
-     */
-    public function testIndexActionSad()
-    {
-        global $di;
-
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
-        // Use a different cache dir for unit test
-        $di->get("cache")->setPath(ANAX_INSTALL_PATH . "/test/cache");
-
-        // View helpers uses the global $di so it needs its value
-        // $di = $this->di;
-
-        // Setup the controller
-        $controller = new ValidateIPJsonController();
-        $controller->setDI($this->di);
-        $controller->initialize();
-
-        // Setup request
-        $request = $this->di->get("request");
-        $request->setGet("ip", "bad.ip.by.user");
-        
-        // Get response
-        $res = $controller->indexActionGet();
-        $exp = "bad.ip.by.user is not a valid format";
-        $this->assertIsArray($res);
-        $this->assertEquals($res[0]["data"]["text"], $exp);
-        
-        $request->setGet("ip", "");
-        $res = $controller->indexActionGet();
-        $exp = false;
-        $this->assertIsArray($res);
-        $this->assertEquals($res[0]["data"]["isValid"], $exp);
+        // $this->assertIsArray($res);
+        $this->assertEquals($res->ip, $exp);
     }
 }

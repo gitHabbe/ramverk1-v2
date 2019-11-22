@@ -21,8 +21,8 @@ Om
 
 Detta innehåll är skrivet i markdown och du hittar innehållet i filen `content/om.md`.
 
-Skriv några kloka ord om kursen?
-
-Lägg till en representativ bild för kursen, enligt ditt egna val.
-
-[FIGURE src=image/car.png?w=300 caption="En fin bil som demobild."]
+Jag ser fram emot att lära mig mer om PHP och hur snygg struktur ska se ut.
+<div class="figures">
+[FIGURE src=image/less-icon.png?width=400&height=150&crop-to-fit&area=0,0,15,0 caption="LESS"]
+[FIGURE src=image/logo-php.png??width=400&height=150&crop-to-fit&area=0,0,15,0 caption="PHP"]
+</div>

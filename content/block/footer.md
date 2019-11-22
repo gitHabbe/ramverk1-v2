@@ -1,1 +1,1 @@
-Copyright år och ditt namn samt diverse länkar som du finner relevanta.
+© 2019 Niklas H - [Project](https://github.com/gitHabbe/ramverk1-v2)

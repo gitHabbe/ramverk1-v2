@@ -69,6 +69,11 @@ return [
                         "url" => "validate",
                         "title" => "Redovisning för kmom01.",
                     ],
+                    [
+                        "text" => "Geo",
+                        "url" => "geo",
+                        "title" => "Redovisning för kmom01.",
+                    ],
                 ],
             ],
         ],
