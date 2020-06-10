@@ -14,7 +14,6 @@ namespace Anax\View;
 <div class="geoIP">
     <?php if ($res) : ?>
         <?php if ($res["fetch"]) : ?>
-            <!-- <?php var_dump($res["fetch"]) ?> -->
             <p>IP: <?= $res["fetch"]->ip ?></p>
             <p>Type: <?= $res["fetch"]->type ?></p>
             <p>Country: <?= $res["fetch"]->country_name ?></p>
@@ -39,7 +38,7 @@ namespace Anax\View;
 <form method="post" action="<?= url("api/geo/search") ?>">
     <fieldset>
         <legend>
-            <label for="ip">IP:</label>
+            <label for="ip">API call:</label>
         </legend>
         <input type="text" value="<?= $defaultIP ?>" name="ip">
         <button type="submit">Search</button>

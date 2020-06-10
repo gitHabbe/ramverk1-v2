@@ -25,6 +25,10 @@ $title = ($title ?? "No title") . ($baseTitle ?? " | No base title defined");
 <?php if (isset($stylesheets)) : ?>
     <?php foreach ($stylesheets as $stylesheet) : ?>
         <link rel="stylesheet" type="text/css" href="<?= asset($stylesheet) ?>">
+
+        <!-- leaflet for opensteetmap -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <?php endforeach; ?>
 <?php endif; ?>
 

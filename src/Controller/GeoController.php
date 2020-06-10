@@ -56,14 +56,15 @@ class GeoController implements ContainerInjectableInterface
      */
     public function indexActionGet() : object
     {
-        $request = $this->di->get("request");
+        $request    = $this->di->get("request");
+        $page       = $this->di->get("page");
+
         $defaultIP = $request->getServer("HTTP_X_FORWARDED_FOR") ? $request->getServer("HTTP_X_FORWARDED_FOR") : "45.144.116.1";
         $data = [
             "res" => $this->res,
             "defaultIP" => $defaultIP,
         ];
         $title = "Validate IP";
-        $page = $this->di->get("page");
         $page->add("geo-ip", $data);
 
         return $page->render(["title" => $title]);
@@ -99,6 +100,7 @@ class GeoController implements ContainerInjectableInterface
         $session = $this->di->get("session");
         $this->res = [];
         $session->set("res", $this->res);
+
         return $response->redirect("geo");
     }
 }

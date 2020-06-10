@@ -13,10 +13,10 @@ class ValidateIP
         $this->type = "unknown";
     }
 
-    // public function setIP(String $ip = "") : void
-    // {
-    //     $this->ip = $ip;
-    // }
+    public function setIP(String $ip = "") : void
+    {
+        $this->ip = $ip;
+    }
 
     public function getIP() : String
     {
@@ -76,4 +76,13 @@ class ValidateIP
         $res["type"] = $this->getType();
         return $res;
     }
+
+    // public function multiValidate(Array $ipArray = [])
+    // {
+    //     $temp = [];
+    //     foreach ($ipArray as $ip) {
+    //         array_push($temp, ltrim($this->sendRes($ip)));
+    //     }
+    //     return $temp;
+    // }
 }
