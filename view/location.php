@@ -16,7 +16,7 @@ namespace Anax\View;
         <legend>
             <label for="location">Location:</label>
         </legend>
-        <input type="text" name="location">
+        <input type="text" name="location" placeholder="Comma-separate">
         <button type="submit">Search</button>
     </fieldset>
 </form>
@@ -43,6 +43,7 @@ namespace Anax\View;
 <div id="mapid" style="height: 200px;"></div>
 
 <p>Don't forget to read the <a hreg="docs">docs</a></p>
+
 
 
 <script>
