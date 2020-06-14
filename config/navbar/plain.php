@@ -18,6 +18,7 @@ return [
             "url" => "redovisning",
             "title" => "Redovisningstexter från kursmomenten.",
         ],
+        
         [
             "text" => "Om",
             "url" => "om",

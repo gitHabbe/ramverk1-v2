@@ -20,5 +20,10 @@ return [
             "mount" => "geo",
             "handler" => "\Anax\Controller\GeoJSONController"
         ],
+        [
+            "info" => "Just say hi with a string.",
+            "mount" => "location",
+            "handler" => "\Anax\Controller\LocationJSONController"
+        ],
     ]
 ];

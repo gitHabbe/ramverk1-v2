@@ -35,6 +35,30 @@ return [
             ],
         ],
         [
+            "text" => "IP",
+            "url" => "validate",
+            "title" => "Validate IP.",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Validate IP",
+                        "url" => "validate",
+                        "title" => "Redovisning för kmom01.",
+                    ],
+                    [
+                        "text" => "Geo",
+                        "url" => "geo",
+                        "title" => "Redovisning för kmom01.",
+                    ],
+                    [
+                        "text" => "Map",
+                        "url" => "location",
+                        "title" => "",
+                    ],
+                ],
+            ],
+        ],
+        [
             "text" => "Om",
             "url" => "om",
             "title" => "Om denna webbplats.",

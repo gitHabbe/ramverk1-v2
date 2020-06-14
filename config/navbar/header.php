@@ -74,6 +74,11 @@ return [
                         "url" => "geo",
                         "title" => "Redovisning för kmom01.",
                     ],
+                    [
+                        "text" => "Map",
+                        "url" => "location",
+                        "title" => "",
+                    ],
                 ],
             ],
         ],
