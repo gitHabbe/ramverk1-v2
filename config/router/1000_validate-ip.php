@@ -17,7 +17,7 @@ return [
         [
             "info" => "Just say hi with a string.",
             "mount" => "validate",
-            "handler" => "\Anax\Controller\ValidateIPController"
+            "handler" => "\Hab\MeModule\ValidateIPController"
         ],
     ]
 ];

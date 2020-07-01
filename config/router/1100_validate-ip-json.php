@@ -13,17 +13,17 @@ return [
         [
             "info" => "Just say hi with a string.",
             "mount" => "ip",
-            "handler" => "\Anax\Controller\ValidateIPJsonController"
+            "handler" => "\Hab\MeModule\ValidateIPJsonController"
         ],
         [
             "info" => "Just say hi with a string.",
             "mount" => "geo",
-            "handler" => "\Anax\Controller\GeoJSONController"
+            "handler" => "\Hab\MeModule\GeoJSONController"
         ],
         [
             "info" => "Just say hi with a string.",
             "mount" => "location",
-            "handler" => "\Anax\Controller\LocationJSONController"
+            "handler" => "\Hab\MeModule\LocationJSONController"
         ],
     ]
 ];

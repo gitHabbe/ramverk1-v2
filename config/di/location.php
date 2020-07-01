@@ -7,7 +7,7 @@ return [
         "location" => [
             "shared" => true,
             "callback" => function () {
-                $location = new \Hab\Model\Location();
+                $location = new \Hab\MeModule\Location();
                 return $location;
             },
         ],

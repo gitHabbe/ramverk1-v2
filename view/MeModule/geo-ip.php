@@ -11,9 +11,11 @@ namespace Anax\View;
 
 ?>
 
+
+
 <div class="geoIP">
-    <?php if ($res) : ?>
-        <?php if ($res["fetch"]) : ?>
+    <?php if ($res): ?>
+        <?php if (isset($res["fetch"])) : ?>
             <p>IP: <?= $res["fetch"]->ip ?></p>
             <p>Type: <?= $res["fetch"]->type ?></p>
             <p>Country: <?= $res["fetch"]->country_name ?></p>

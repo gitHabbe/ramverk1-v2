@@ -7,7 +7,7 @@ return [
         "ip" => [
             "shared" => true,
             "callback" => function () {
-                return new \Hab\Model\ValidateIP();
+                return new \Hab\MeModule\ValidateIP();
             },
         ],
     ],

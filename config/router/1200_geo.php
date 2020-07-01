@@ -13,7 +13,7 @@ return [
         [
             "info" => "Just say hi with a string.",
             "mount" => "geo",
-            "handler" => "\Anax\Controller\GeoController"
+            "handler" => "\Hab\MeModule\GeoController"
         ],
     ]
 ];
