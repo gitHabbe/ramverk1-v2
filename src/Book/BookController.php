@@ -59,7 +59,7 @@ class BookController implements ContainerInjectableInterface
         ]);
 
         return $page->render([
-            "title" => "A collection of items",
+            "title" => "A collection of books",
         ]);
     }
 
@@ -81,7 +81,7 @@ class BookController implements ContainerInjectableInterface
         ]);
 
         return $page->render([
-            "title" => "Create a item",
+            "title" => "Create a book",
         ]);
     }
 
@@ -103,7 +103,7 @@ class BookController implements ContainerInjectableInterface
         ]);
 
         return $page->render([
-            "title" => "Delete an item",
+            "title" => "Delete a book",
         ]);
     }
 
@@ -127,7 +127,7 @@ class BookController implements ContainerInjectableInterface
         ]);
 
         return $page->render([
-            "title" => "Update an item",
+            "title" => "Update book",
         ]);
     }
 }

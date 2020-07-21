@@ -21,6 +21,9 @@ $urlToView = url("book");
 
 <?= $form ?>
 
+<?php
+?>
+
 <p>
     <a href="<?= $urlToView ?>">View all</a>
 </p>
