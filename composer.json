@@ -14,7 +14,9 @@
         "anax/anax-ramverk1-me": "^1.0.0",
         "anax/remserver": "^2.1",
         "anax/anax-cli": "^1.2",
-        "githabbe/me-module": "^1.1"
+        "githabbe/me-module": "^1.1",
+        "anax/htmlform": "^2.0",
+        "anax/database-active-record": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^7"

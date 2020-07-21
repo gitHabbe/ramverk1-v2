@@ -25,19 +25,24 @@ class CreateForm extends FormModel
                 "legend" => "Details of the item",
             ],
             [
-                "column1" => [
+                "author" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
                 ],
                         
-                "column2" => [
+                "title" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
+                ],
+                        
+                "image" => [
+                    "type" => "text",
+                    // "validation" => ["not_empty"],
                 ],
 
                 "submit" => [
                     "type" => "submit",
-                    "value" => "Create item",
+                    "value" => "Create book",
                     "callback" => [$this, "callbackSubmit"]
                 ],
             ]
@@ -56,8 +61,15 @@ class CreateForm extends FormModel
     {
         $book = new Book();
         $book->setDb($this->di->get("dbqb"));
-        $book->column1  = $this->form->value("column1");
-        $book->column2 = $this->form->value("column2");
+        $book->author  = $this->form->value("author");
+        $book->title = $this->form->value("title");
+        $book->image = $this->form->value("image");
+        // var_dump(strpos($book->image, "http") > 0);
+        // die();
+        if (strpos($book->image, "http") === false) {
+            // $book->image = ANAX_INSTALL_PATH . "/data/" . $this->form->value("image");
+            $book->image = "image/" . $this->form->value("image");
+        }
         $book->save();
         return true;
     }

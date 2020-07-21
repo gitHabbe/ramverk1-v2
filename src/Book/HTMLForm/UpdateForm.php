@@ -34,16 +34,22 @@ class UpdateForm extends FormModel
                     "value" => $book->id,
                 ],
 
-                "column1" => [
+                "author" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
-                    "value" => $book->column1,
+                    "value" => $book->author,
                 ],
 
-                "column2" => [
+                "title" => [
                     "type" => "text",
                     "validation" => ["not_empty"],
-                    "value" => $book->column2,
+                    "value" => $book->title,
+                ],
+
+                "image" => [
+                    "type" => "text",
+                    "validation" => ["not_empty"],
+                    "value" => $book->image,
                 ],
 
                 "submit" => [
