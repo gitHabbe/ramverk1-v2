@@ -18,7 +18,7 @@ $urlToDelete = url("book/delete");
 
 
 
-?><h1>View all items</h1>
+?><h1>View all books</h1>
 
 <p>
     <a href="<?= $urlToCreate ?>">Create</a> | 

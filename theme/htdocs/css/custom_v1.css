@@ -6923,8 +6923,11 @@ a.rm-button.rm-clicked .rm-button-face-2 {
 .rm-navbar {
   text-align: center;
   font-family: Cambria, Georgia, Times, 'Times New Roman', serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   line-height: 0;
+}
+.my-navbar a {
+  padding: 0.7em;
 }
 .rm-menu-button {
   font-size: 1.5em;

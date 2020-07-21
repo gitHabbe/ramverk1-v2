@@ -59,6 +59,11 @@ return [
             ],
         ],
         [
+            "text" => "Book",
+            "url" => "book",
+            "title" => "Om denna webbplats.",
+        ],
+        [
             "text" => "IP",
             "url" => "validate",
             "title" => "Validate IP.",
