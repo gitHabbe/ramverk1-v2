@@ -27,7 +27,13 @@ namespace Anax\View;
             <?php if (strlen($coord[1][1]) > 0) : ?>
                 <li><p><?= $coord[1][1] ?></p></li>
             <?php else : ?>
-                <li><?= $coord[1][2] ?> weather: <?= $coord[0]->hourly->summary ?></li>
+                <!-- <?php var_dump($coord[0]) ?> -->
+                <?php $dayNr = 1; ?>
+                <?php foreach ($coord[0]->daily->data ?? [] as $day) : ?>
+                    <li>Weather day <?= $dayNr . " " . $coord[1][2] . ": " . $day->summary?></li>
+                    <?php $dayNr += 1; ?>
+                <?php endforeach; ?>
+                <!-- <li><?= $coord[1][2] ?> weather: <?= $coord[0]->daily->summary ?></li> -->
             <?php endif; ?>
         <?php endforeach; ?>
     </ul>
